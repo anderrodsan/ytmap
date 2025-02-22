@@ -23,22 +23,17 @@ const ChannelCard2: React.FC<Props> = ({ item, className }) => {
 
   return (
     <Link href={"/map"}>
-      <div className={`p-5 flex gap-3 ${className}`}>
-        <Avatar>
+      <div className={`px-5 py-3 flex-start gap-3 ${className}`}>
+        <Avatar className="h-8 w-8">
           <AvatarImage src={item.avatar} />
           <AvatarFallback>A</AvatarFallback>
         </Avatar>
-        <div className="w-full">
+        <div className="flex-between gap-2 font-semibold text-sm opacity-85 w-full">
           <p className="font-bold text-lg">{item.title}</p>
-          <div className="flex-start gap-2 font-semibold text-sm pt-1 opacity-85">
-            <p>
-              <span className="text-base">{formatNumber(item.subs)}</span> Subs
-            </p>
-            <p>
-              <span className="text-base">{formatNumber(item.videos)}</span>{" "}
-              Videos
-            </p>
-          </div>
+          <p>
+            <span className="text-base">{formatNumber(item.videos)}</span>{" "}
+            Videos
+          </p>
         </div>
       </div>
     </Link>

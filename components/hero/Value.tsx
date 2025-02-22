@@ -41,7 +41,7 @@ export default function Value() {
       <section className="relative py-20 w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 px-5 md:px-20 bg-green text-white">
         <div className="flex flex-col gap-5 items-center md:items-start w-full">
           <AnimatedTitle className="text-2xl md:text-4xl font-bold px-5 py-3 rounded-2xl bg-[#3fa2ad] text-white">
-            Value for Creators
+            Value for creators
           </AnimatedTitle>
           {creators.map((item, index) => (
             <AnimatedCard
@@ -83,7 +83,7 @@ export default function Value() {
         </AnimatedText>
         <div className="flex flex-col gap-5 items-center md:items-start">
           <p className="text-2xl md:text-4xl font-bold px-5 py-2 rounded-2xl bg-[#3fa2ad]">
-            Value for Audience
+            Value for your viewers
           </p>
           {viewers.map((item, index) => (
             <AnimatedCard

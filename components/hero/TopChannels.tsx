@@ -23,11 +23,14 @@ export default function TopChannels() {
             index={index}
             className="hover:scale-[1.02] transition-all z-40"
           >
-            <ChannelCard item={item} className="bg-[#98d7de]" />
+            <ChannelCard
+              item={item}
+              className="bg-[#98d7de] hover:scale-[1.02] transition-all"
+            />
           </AnimatedCard>
         ))}
       </div>
-      <AnimatedText>
+      <AnimatedText className="z-40">
         <Link href={"/channels"} className="z-40">
           <Button>View All</Button>
         </Link>
