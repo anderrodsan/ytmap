@@ -22,7 +22,7 @@ const ChannelCard: React.FC<Props> = ({ item, className }) => {
   };
 
   return (
-    <Link href={"/map"} className="">
+    <Link href={"/map/" + item.id} className="">
       <Card className={`p-5 flex gap-3 cursor-pointer z-40 ${className}`}>
         <Avatar>
           <AvatarImage src={item.avatar} />

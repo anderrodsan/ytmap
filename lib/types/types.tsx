@@ -1,9 +1,8 @@
-
-
 export type IChannel = {
-    title: string
-    description: string
-    subs: number
-    videos: number
-    avatar: string 
-}
+  id: string;
+  title: string;
+  description: string;
+  subs: number;
+  videos: number;
+  avatar: string;
+};

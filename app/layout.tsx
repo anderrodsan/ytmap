@@ -8,8 +8,8 @@ import NavBar from "@/components/navigation/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Plex World",
-  description: "Mapa interactivo para seguir los viajes de plex",
+  title: "Youmap",
+  description: "Discover the new way to navigate YouTube",
 };
 
 export default function RootLayout({

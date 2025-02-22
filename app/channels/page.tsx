@@ -41,7 +41,10 @@ export default function Channels() {
               index={index}
               className="hover:scale-[1.02] transition-all"
             >
-              <ChannelCard item={item} className="bg-[#98d7de]" />
+              <ChannelCard
+                item={item}
+                className="bg-[#98d7de] hover:scale-[1.02] transition-all"
+              />
             </AnimatedCard>
           ))}
         </div>
