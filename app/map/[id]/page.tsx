@@ -2,26 +2,46 @@ import SideBar from "@/components/navigation/SideBar";
 import Map from "@/components/map/Map";
 import ChannelCard2 from "@/components/cards/ChannelCard2";
 import { ChannelData } from "@/data/channels";
+import { globeData } from "@/data/data";
+import { promises as fs } from "fs";
+import { Video } from "@/lib/types/types";
 
-export default function YTMap({ params }: { params: { id: string } }) {
-  const item = ChannelData.find(({ id }) => id === params.id) || ChannelData[0];
-  console.log(item);
+export default async function YTMap({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { series: string };
+}) {
+  const channel =
+    ChannelData.find(({ id }) => id === params.id) || ChannelData[0];
+
+  //get the series from the searchparams
+  const series = searchParams.series || null;
+
+  const videosRaw = await fs.readFile(
+    process.cwd() + `/data/${params.id}/${series}.json`,
+    "utf8"
+  );
+
+  const videos: Video[] = JSON.parse(videosRaw);
+
+  if (!videos && !channel) {
+    return <div>Not found</div>;
+  }
 
   return (
-    <div className="flex flex-col md:flex-row h-full w-full">
+    <div className="flex flex-col md:flex-row h-full w-full bg-stone-50">
       <SideBar
-        className="hidden md:h-full md:w-1/3 lg:flex flex-col pt-2 md:py-5 px-2 md:px-5"
-        channel={item}
+        className="hidden md:h-full lg:flex flex-col pt-2 pl-3"
+        channel={channel}
+        data={videos}
       />
-      <div className="relative rounded-2xl overflow-hidden flex-1 m-2 md:m-5 lg:ml-0 ">
+      <div className="relative overflow-hidden flex-1 ">
         <div className="lg:hidden">
-          <ChannelCard2
-            item={item}
-            className="absolute bottom-2 left-2 right-2 z-50 bg-green text-white rounded-2xl"
-          />
+          <ChannelCard2 item={channel} className="" />
         </div>
-
-        <Map />
+        <Map data={videos} />
       </div>
     </div>
   );

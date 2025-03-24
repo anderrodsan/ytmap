@@ -6,7 +6,7 @@ const nextConfig = {}
 // This is just a test for images
 module.exports = {
     images: {
-        domains: ['i1.ytimg.com'],
+        domains: ['i3.ytimg.com'],
     },
     typescript: {
         // !! WARN !!

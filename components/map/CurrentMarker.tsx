@@ -10,11 +10,13 @@ import { Badge } from "../ui/badge";
 import { useSearchParams } from "next/navigation";
 import { globeData } from "@/data/data";
 
-export default function CurrentMarker() {
+export default function CurrentMarker({ videos }: { videos: any }) {
   const searchParams = useSearchParams()!;
   const id = searchParams.get("id") || "1";
 
-  const item = globeData.find((item) => item.id === id) || globeData[0];
+  console.log(videos);
+
+  const item = videos.find((item: any) => item.id === id) || globeData[0];
 
   const map = useMap();
   const markerRef = useRef(null);
@@ -49,7 +51,7 @@ export default function CurrentMarker() {
       ref={markerRef}
     >
       <Popup className="">
-        <div className="flex flex-col justify-center items-center space-y-2 w-full py-2">
+        <div className="flex flex-col justify-center items-center space-y-2 w-full py-2 ">
           <Link
             className="relative col-span-3 cursor-pointer rounded-md overflow-hidden group w-full"
             href={item.url}

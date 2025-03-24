@@ -13,9 +13,10 @@ import { globeData } from "@/data/data";
 import MarkerItem from "./Marker";
 import CurrentMarker from "./CurrentMarker";
 import { useEffect } from "react";
+import { Video } from "@/lib/types/types";
 
-const Map = () => {
-  const data = globeData;
+export default function Map({ data }: { data: Video[] }) {
+  console.log("videos", data);
 
   return (
     <MapContainer
@@ -31,16 +32,14 @@ const Map = () => {
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
       />
       {data.map((item, index) => (
         <div key={index}>
           <MarkerItem item={item} />
         </div>
       ))}
-      <CurrentMarker />
+      <CurrentMarker videos={data} />
     </MapContainer>
   );
-};
-
-export default Map;
+}

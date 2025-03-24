@@ -11,6 +11,7 @@ type Props = {
 };
 
 const ChannelCard2: React.FC<Props> = ({ item, className }) => {
+  // Format the number of videos to 1M or 1k
   const formatNumber = (num: number): string => {
     if (num >= 1e6) {
       return (num / 1e6).toFixed(1) + "M";
@@ -22,21 +23,20 @@ const ChannelCard2: React.FC<Props> = ({ item, className }) => {
   };
 
   return (
-    <Link href={"/map"}>
-      <div className={`px-5 py-3 flex-start gap-3 ${className}`}>
-        <Avatar className="h-8 w-8">
+    <div className="p-3 space-y-5">
+      <div className={`flex-start gap-3 ${className}`}>
+        <Avatar className="h-12 w-12">
           <AvatarImage src={item.avatar} />
-          <AvatarFallback>A</AvatarFallback>
+          <AvatarFallback>Y</AvatarFallback>
         </Avatar>
-        <div className="flex-between gap-2 font-semibold text-sm opacity-85 w-full">
+        <div className="opacity-85 w-full">
           <p className="font-bold text-lg">{item.title}</p>
-          <p>
-            <span className="text-base">{formatNumber(item.videos)}</span>{" "}
-            Videos
+          <p className="text-sm  opacity-80">
+            {formatNumber(item.subs)} Subscriptores
           </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

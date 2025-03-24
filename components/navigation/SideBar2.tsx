@@ -9,7 +9,7 @@ import { Badge } from "../ui/badge";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar({channel, data}: {channel: any, data: any}) {
   const [data, setData] = useState(globeData);
 
   const handleClick = () => {
@@ -17,8 +17,6 @@ export default function SideBar() {
     setData((prevData) => [...prevData].reverse());
     console.log("After:", data);
   };
-
-  const item = ChannelData[0];
 
   return (
     <div className="w-1/3 h-full hidden lg:flex flex-col py-5">
